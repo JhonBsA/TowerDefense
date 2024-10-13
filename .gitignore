@@ -1,0 +1,72 @@
+# Ignore los archivos generados por Unity que no son necesarios para el control de versiones
+
+# Archivos específicos de Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Si estás usando Auto Generated Visual Studio Project Files
+.vscode/
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Archivos relacionados a paquetes
+Packages/manifest.json
+Packages/packages-lock.json
+
+# Archivos de configuración de plataforma específica
+*.apk
+*.aab
+*.xcodeproj/
+*.xcworkspace/
+*.gradle/
+*.idea/
+*.iws
+*.iml
+*.ipr
+*.dll
+*.exe
+*.app
+*.tmp
+*.log
+*.patch
+*.lock
+*.flags
+
+# Archivos generados por Unity con control de versiones externo
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/EditorSettings.asset
+
+# User-specific Unity data
+UserSettings/
+
+# Para MacOS
+.DS_Store
+
+# Para Windows
+Thumbs.db
+Desktop.ini
+
+# Archivos de configuración adicionales
+.vsconfig
+
+# No ignores las carpetas de Assets y ProjectSettings
+!Assets/
+!ProjectSettings/
