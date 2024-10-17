@@ -73,7 +73,7 @@ Este proyecto es un juego de tipo Tower Defense desarrollado en Unity, donde el 
 
 1. Clona este repositorio en tu máquina local:
 
-       git clone https://github.com/tu-usuario/TowerDefense
+       git clone https://github.com/JhonBsA/TowerDefense
 
 2. Abre el proyecto con Unity Hub y selecciona la versión adecuada.
    
