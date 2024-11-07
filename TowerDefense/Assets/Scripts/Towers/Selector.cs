@@ -5,6 +5,9 @@ using UnityEngine;
 public class Selector : MonoBehaviour
 {
     public Color hoverColor; // The color to change to on hover
+
+    private GameObject turret;
+
     public Vector3 hoverScale = new Vector3(1.1f, 1.1f, 1.1f);
     public float hoverOpacity = 0.5f; // Opacity on hover
     public float startOpacity = 1.0f; // Original opacity
@@ -30,13 +33,26 @@ public class Selector : MonoBehaviour
         transform.localScale = hoverScale;
 
 
-        // Notify the Castle to change opacity and color
+        // Notify the Castle to change 
         CastleHover castleHover = FindObjectOfType<CastleHover>();
         if (castleHover != null)
         {
-            castleHover.SetCastleOpacity(hoverOpacity); // Set the desired transparency level
-            castleHover.ChangeCastleColor(castleHover.hoverColor); // Change the castle color
+            // On hover, set the transparent material
+            castleHover.SetTransparentMaterial();
         }
+    }
+
+    #region Highlighting 
+    void OnMouseDown()
+    {
+        if (turret != null)
+        {
+            Debug.Log("Can't build there! ToDo: Display this on screen");
+            return;
+        }
+
+        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
+        turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
     }
 
     void OnMouseExit() // Reset
@@ -51,8 +67,9 @@ public class Selector : MonoBehaviour
         CastleHover castleHover = FindObjectOfType<CastleHover>();
         if (castleHover != null)
         {
-            castleHover.SetCastleOpacity(1.0f); // Reset to fully opaque
-            castleHover.ChangeCastleColor(castleHover.originalColors[0]); // Reset to the original color of the first piece
+            // When the hover ends, revert to the original material
+            castleHover.SetOriginalMaterial();
         }
     }
+    #endregion
 }

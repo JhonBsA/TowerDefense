@@ -1,45 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CastleHover : MonoBehaviour
 {
-    private Renderer[] castleRenderers; // Array of castle child renderers
-    public Color hoverColor = Color.red; // Color to apply when hovering over tiles
-    public Color[] originalColors; // Store original colors
+    public Material castleMat; // The original opaque material
+    public Material castleTransparent; // The transparent material
+
+    private Renderer[] castleRenderers; // Array of renderers for all parts of the castle
+    private Material[] originalMaterials; // Stores original materials to revert back
 
     void Start()
     {
-        // Get all child renderers of the castle
+        // Get all renderers within the castle object
         castleRenderers = GetComponentsInChildren<Renderer>();
-        originalColors = new Color[castleRenderers.Length];
 
-        // Store the original colors of the castle pieces
+        // Store the original materials so we can revert back after hover
+        originalMaterials = new Material[castleRenderers.Length];
         for (int i = 0; i < castleRenderers.Length; i++)
         {
-            originalColors[i] = castleRenderers[i].material.color;
+            originalMaterials[i] = castleRenderers[i].material;
         }
     }
 
-    // Method to set the opacity of the castle
-    public void SetCastleOpacity(float opacity)
+    // Change castle to transparent material
+    public void SetTransparentMaterial()
     {
-        for (int i = 0; i < castleRenderers.Length; i++)
+        foreach (Renderer renderer in castleRenderers)
         {
-            Color castleColor = originalColors[i]; // Use the original color
-            castleColor.a = opacity; // Set the desired opacity
-            castleRenderers[i].material.color = castleColor; // Update the renderer's color
+            renderer.material = castleTransparent;
         }
     }
 
-    // Method to change the castle color
-    public void ChangeCastleColor(Color color)
+    // Change castle to the original material
+    public void SetOriginalMaterial()
     {
-        foreach (Renderer castleRenderer in castleRenderers)
+        for (int i = 0; i < castleRenderers.Length; i++)
         {
-            Color castleColor = castleRenderer.material.color;
-            castleColor = color; // Change the color to the new color
-            castleRenderer.material.color = castleColor;
+            castleRenderers[i].material = originalMaterials[i];
         }
     }
 }
