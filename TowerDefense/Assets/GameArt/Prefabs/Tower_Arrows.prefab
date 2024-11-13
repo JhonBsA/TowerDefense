@@ -559,7 +559,7 @@ Transform:
   m_GameObject: {fileID: 3858597617479987815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.343, y: 1.571, z: 0}
+  m_LocalPosition: {x: 6.343, y: 1.585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -791,6 +791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3468595461048023444}
+  - component: {fileID: 1246463669380583628}
   m_Layer: 0
   m_Name: Tower_Arrows
   m_TagString: Untagged
@@ -816,6 +817,18 @@ Transform:
   - {fileID: 7780004492423170736}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246463669380583628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361676948013918381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d9ff6bd04cc114d8ead69767a8ebd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5452873212106618579
 GameObject:
   m_ObjectHideFlags: 0
