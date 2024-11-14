@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 331168217286386755}
   m_Layer: 0
   m_Name: EnemyZombie 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb37d183a9ac0d4582aa3ad96dfe933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &8015396503262122403
 GameObject:
   m_ObjectHideFlags: 0
