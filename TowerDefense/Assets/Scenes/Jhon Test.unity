@@ -4621,7 +4621,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1106457802}
   spawnPoint: {fileID: 606510153}
   timeBetweenWaves: 5
-  waveCountdownText: {fileID: 1544015692}
+  waveCountdownText: {fileID: 0}
 --- !u!4 &1702843946
 Transform:
   m_ObjectHideFlags: 0
