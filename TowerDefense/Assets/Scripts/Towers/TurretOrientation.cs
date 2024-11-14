@@ -1,13 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretOrientation : MonoBehaviour
 {
     public GameObject turretPrefab;
 
-    private static readonly Quaternion Up = Quaternion.Euler(0, 90, 0);        // Facing up (90 degrees)
-    private static readonly Quaternion Down = Quaternion.Euler(0, -90, 0);     // Facing down (-90 degrees)
-    private static readonly Quaternion Left = Quaternion.Euler(0, 0, 0);       // Facing left (0 degrees)
-    private static readonly Quaternion Right = Quaternion.Euler(0, 180, 0);    // Facing right (180 degrees)
+    private static readonly Quaternion Up = Quaternion.Euler(0, 90, 0);        
+    private static readonly Quaternion Down = Quaternion.Euler(0, -90, 0);     
+    private static readonly Quaternion Left = Quaternion.Euler(0, 0, 0);       
+    private static readonly Quaternion Right = Quaternion.Euler(0, 180, 0);    
 
     // This method will be called from BuildManager to place the turret
     public void PlaceTurret(Vector3 position)
