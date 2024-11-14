@@ -7,7 +7,6 @@ TagManager:
   - Castle
   - Path
   - SelectionTile
-  - Enemy
   layers:
   - Default
   - TransparentFX
