@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Selector : MonoBehaviour
 {
     public Color hoverColor; // The color to change to on hover
-
     private GameObject turret;
 
     public Vector3 hoverScale = new Vector3(1.1f, 1.1f, 1.1f);
@@ -16,12 +13,33 @@ public class Selector : MonoBehaviour
     private Color startColor;
     private Vector3 startScale;
 
+    // Variable to store the tile's position
+    private Vector3 tilePosition;
+
     void Start()
     {
         // Initialize Color and Scale
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         startScale = transform.localScale;
+    }
+
+    void OnMouseDown()
+    {
+        if (turret != null)
+        {
+            Debug.Log("Can't build there! ToDo: Display this on screen");
+            return;
+        }
+
+        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
+        
+
+        // Save the tile's position when the mouse is clicked
+        tilePosition = transform.position;
+
+        // Call BuildManager to orient turret at tile position
+        turret = BuildManager.instance.OrientTurret(tilePosition);
     }
 
     void OnMouseEnter()
@@ -32,7 +50,6 @@ public class Selector : MonoBehaviour
         rend.material.color = newColor;
         transform.localScale = hoverScale;
 
-
         // Notify the Castle to change 
         CastleHover castleHover = FindObjectOfType<CastleHover>();
         if (castleHover != null)
@@ -41,20 +58,6 @@ public class Selector : MonoBehaviour
             castleHover.SetTransparentMaterial();
         }
     }
-
-    #region Highlighting 
-    void OnMouseDown()
-    {
-        if (turret != null)
-        {
-            Debug.Log("Can't build there! ToDo: Display this on screen");
-            return;
-        }
-
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
-    }
-
     void OnMouseExit() // Reset
     {
         // Reset to original color and opacity
@@ -71,5 +74,4 @@ public class Selector : MonoBehaviour
             castleHover.SetOriginalMaterial();
         }
     }
-    #endregion
 }
