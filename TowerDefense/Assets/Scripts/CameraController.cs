@@ -12,9 +12,9 @@ public class CameraController : MonoBehaviour
     public float minY = 10f;
     public float maxY = 30f;
 
-    public float minX = -10f;
-    public float maxX = 10f;
-    public float minZ = -10f;
+    public float minX = -7f;
+    public float maxX = 7f;
+    public float minZ = -22f;
     public float maxZ = -5f;
 
     // Update is called once per frame

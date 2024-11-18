@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Selector : MonoBehaviour
 {
@@ -16,23 +17,33 @@ public class Selector : MonoBehaviour
     // Variable to store the tile's position
     private Vector3 tilePosition;
 
+    BuildManager buildManager;
+
     void Start()
     {
         // Initialize Color and Scale
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         startScale = transform.localScale;
+
+        buildManager = BuildManager.instance;
     }
 
     void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (buildManager.GetTurretToBuild() == null)
+            return;
+
         if (turret != null)
         {
             Debug.Log("Can't build there! ToDo: Display this on screen");
             return;
         }
 
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
+        GameObject turretToBuild = buildManager.GetTurretToBuild();
         
 
         // Save the tile's position when the mouse is clicked
@@ -44,6 +55,12 @@ public class Selector : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (buildManager.GetTurretToBuild() == null)
+            return;
+
         // Change color and opacity on hover
         Color newColor = hoverColor;
         newColor.a = hoverOpacity; // Set the hover opacity

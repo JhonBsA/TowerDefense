@@ -20,19 +20,24 @@ public class BuildManager : MonoBehaviour
         instance = this; // this (BuildManager class)
     }
 
-    public GameObject standardTurretPrefab;  // Prefab of the turret
+    //public GameObject standardTurretPrefab;  // Prefab of the turret BORRAR
+    public GameObject arrowTurretPrefab;
+    public GameObject cannonTurretPrefab;
+    public GameObject crystalTurretPrefab;
+
     private GameObject turretToBuild;
 
     private TurretOrientation turretOrientation;
 
-    private void Start()
-    {
-        turretToBuild = standardTurretPrefab; // Default turret to place
-    }
 
     public GameObject GetTurretToBuild()
     {
         return turretToBuild;
+    }
+
+    public void SetTurretToBuild (GameObject turret)
+    {
+        turretToBuild = turret;
     }
     #endregion
 
