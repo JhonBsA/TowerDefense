@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BuildManager : MonoBehaviour
 {
@@ -16,28 +14,41 @@ public class BuildManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogError("More than one BuildManager in scene!");
+            return;
         }
         instance = this; // this (BuildManager class)
     }
 
-    //public GameObject standardTurretPrefab;  // Prefab of the turret BORRAR
     public GameObject arrowTurretPrefab;
     public GameObject cannonTurretPrefab;
     public GameObject crystalTurretPrefab;
 
-    private GameObject turretToBuild;
+    private TurretBlueprint turretToBuild;
 
-    private TurretOrientation turretOrientation;
+    public bool CanBuild {  get { return turretToBuild != null; } }
 
-
-    public GameObject GetTurretToBuild()
+    public void BuildTurretOn (Selector node)
     {
-        return turretToBuild;
+        if (PlayerStats.Money < turretToBuild.cost)
+        {
+            Debug.Log("Not enough money to buil that!");
+            return;
+        }
+
+        PlayerStats.Money -= turretToBuild.cost;
+
+        GameObject turret = OrientTurret(node.transform.position);
+            node.turret = turret;
+
+        Debug.Log("Turret build! Money left: " + PlayerStats.Money);
+
     }
 
-    public void SetTurretToBuild (GameObject turret)
+    public void SelectTurretToBuild (TurretBlueprint turret)
     {
+
         turretToBuild = turret;
+
     }
     #endregion
 
@@ -56,7 +67,7 @@ public class BuildManager : MonoBehaviour
         Quaternion turretRotation = DetermineRotation(tilePosition);
 
         // Instantiate the turret at this position with the calculated rotation
-        return Instantiate(turretToBuild, tilePosition, turretRotation);
+        return Instantiate(turretToBuild.prefab, tilePosition, turretRotation);
     }
     // Method to calculate the turret's rotation based on the position
     public Quaternion DetermineRotation(Vector3 position)

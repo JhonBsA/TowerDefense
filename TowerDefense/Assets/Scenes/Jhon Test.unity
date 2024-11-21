@@ -313,7 +313,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 348840276}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseCrystalTurret
+        m_MethodName: SelectCrystalTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -917,7 +917,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 348840276}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseCannonTurret
+        m_MethodName: SelectCannonTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1251,6 +1251,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5766ce13a1091684989680f16b94c7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowTurret:
+    prefab: {fileID: 3115353119944041982, guid: 89458aade67471a4c97a7449022a5bf6,
+      type: 3}
+    cost: 100
+  cannonTurret:
+    prefab: {fileID: 6852206119199854533, guid: bb7ee2dcc19753a479e48729eda16922,
+      type: 3}
+    cost: 500
+  crystalurret:
+    prefab: {fileID: 5665033924317210342, guid: e1f86a5c6103f9347a2b2d4323bf454d,
+      type: 3}
+    cost: 1000
 --- !u!1 &360423505
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,6 +5328,7 @@ GameObject:
   - component: {fileID: 1702843946}
   - component: {fileID: 1702843945}
   - component: {fileID: 1702843947}
+  - component: {fileID: 1702843948}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -5373,6 +5386,19 @@ MonoBehaviour:
     type: 3}
   crystalTurretPrefab: {fileID: 5665033924317210342, guid: e1f86a5c6103f9347a2b2d4323bf454d,
     type: 3}
+--- !u!114 &1702843948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702843944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8903cbc1782de409ebef74823ba10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400
 --- !u!1001 &1723966029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6947,7 +6973,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 348840276}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseArrowTurret
+        m_MethodName: SelectArrowTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

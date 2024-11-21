@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 public class Selector : MonoBehaviour
 {
     public Color hoverColor; // The color to change to on hover
-    private GameObject turret;
+
+    [Header("Optional")]
+    public GameObject turret;
 
     public Vector3 hoverScale = new Vector3(1.1f, 1.1f, 1.1f);
     public float hoverOpacity = 0.5f; // Opacity on hover
@@ -34,7 +36,7 @@ public class Selector : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (!buildManager.CanBuild)
             return;
 
         if (turret != null)
@@ -43,14 +45,8 @@ public class Selector : MonoBehaviour
             return;
         }
 
-        GameObject turretToBuild = buildManager.GetTurretToBuild();
-        
+        buildManager.BuildTurretOn(this);
 
-        // Save the tile's position when the mouse is clicked
-        tilePosition = transform.position;
-
-        // Call BuildManager to orient turret at tile position
-        turret = BuildManager.instance.OrientTurret(tilePosition);
     }
 
     void OnMouseEnter()
@@ -58,7 +54,7 @@ public class Selector : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (!buildManager.CanBuild)
             return;
 
         // Change color and opacity on hover
