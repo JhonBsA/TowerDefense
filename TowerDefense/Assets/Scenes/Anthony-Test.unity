@@ -748,11 +748,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 9806c63908e28164f806e3cf67ac6de9, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1800,6 +1800,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 606510152}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &670231832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3747827426451472986, guid: 397a8a3c4eb794d40ac1c7ed85c3a9bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1156018868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &728458575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2738,6 +2744,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1156018868}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1106457806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670231832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed574b614a59938408133372de64b8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  startHealth: 100
+  health: 100
+  healthBar: {fileID: 360423507}
 --- !u!1001 &1156018868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2746,6 +2768,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1679747898}
     m_Modifications:
+    - target: {fileID: 2973391725909347438, guid: 397a8a3c4eb794d40ac1c7ed85c3a9bb,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3747827426451472986, guid: 397a8a3c4eb794d40ac1c7ed85c3a9bb,
         type: 3}
       propertyPath: m_Name
@@ -2808,7 +2835,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1481730544}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3747827426451472986, guid: 397a8a3c4eb794d40ac1c7ed85c3a9bb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1106457806}
   m_SourcePrefab: {fileID: 100100000, guid: 397a8a3c4eb794d40ac1c7ed85c3a9bb, type: 3}
 --- !u!1001 &1160491469
 PrefabInstance:
@@ -3444,8 +3475,9 @@ GameObject:
   - component: {fileID: 1481730543}
   - component: {fileID: 1481730542}
   - component: {fileID: 1481730541}
+  - component: {fileID: 1481730545}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Enemy HP Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3532,8 +3564,20 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.0400002}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1481730545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481730540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b4ea221c91fbd4fb883d86b6b312a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1527651525
 PrefabInstance:
   m_ObjectHideFlags: 0
