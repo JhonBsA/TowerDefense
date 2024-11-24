@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Selector : MonoBehaviour
 {
     public Color hoverColor; // The color to change to on hover
+    public Color notEnoughMoneyColor;
 
     [Header("Optional")]
     public GameObject turret;
@@ -57,11 +58,20 @@ public class Selector : MonoBehaviour
         if (!buildManager.CanBuild)
             return;
 
-        // Change color and opacity on hover
-        Color newColor = hoverColor;
-        newColor.a = hoverOpacity; // Set the hover opacity
-        rend.material.color = newColor;
-        transform.localScale = hoverScale;
+        if (buildManager.HasMoney)
+        {
+            // Change color and opacity on hover
+            Color newColor = hoverColor;
+            newColor.a = hoverOpacity; // Set the hover opacity
+            rend.material.color = newColor;
+            transform.localScale = hoverScale;
+        } else
+        {
+            Color newColor = notEnoughMoneyColor;
+            newColor.a = hoverOpacity;
+            rend.material.color = newColor;
+            transform.localScale = hoverScale;
+        }
 
         // Notify the Castle to change 
         CastleHover castleHover = FindObjectOfType<CastleHover>();
