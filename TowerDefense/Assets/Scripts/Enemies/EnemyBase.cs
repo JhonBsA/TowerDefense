@@ -9,6 +9,8 @@ public class EnemyBase : MonoBehaviour
     public float startHealth = 100;
     public float health;
 
+    public int value = 50;
+
     [Header("Unity Stuff")]
     public Image healthBar;
 
@@ -32,6 +34,7 @@ public class EnemyBase : MonoBehaviour
 
     void Die()
     {
+        PlayerStats.Money += value;
         Destroy(gameObject); // Destroys the enemy when health reaches 0
     }
 

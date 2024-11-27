@@ -44,11 +44,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (waypointIndex >= Waypoint.waypoints.Length - 1)
         {
-            Destroy(gameObject);
+            EndPath();
             return;
         }
         waypointIndex++;
         target = Waypoint.waypoints[waypointIndex];
+    }
+
+    void EndPath()
+    {
+        PlayerStats.Lives--;
+        Destroy(gameObject);
     }
 
     Vector3 RoundToNearest90(Vector3 eulerAngles)
