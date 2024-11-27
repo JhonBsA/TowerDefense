@@ -6,8 +6,8 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public float startHealth = 100;
-    public float health;
+    public int startHealth = 100;
+    public int health;
 
     [Header("Unity Stuff")]
     public Image healthBar;
@@ -32,7 +32,7 @@ public class EnemyBase : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject); // Destroys the enemy when health reaches 0
+        Destroy(gameObject); 
     }
 
 }

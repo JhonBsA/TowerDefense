@@ -415,7 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 5
   fireRate: 1
-  projectilePrefab: {fileID: 9222996828435669271}
+  projectilePrefab: {fileID: 8605043780558012650, guid: c356c6cc7d292a244a3442fa4155af43,
+    type: 3}
   firePoint: {fileID: 6360734400496430364}
   projectileSpeed: 5
 --- !u!1 &6881714184676335007
@@ -1170,9 +1171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  explosionRadius: 3
   damage: 40
-  enemyLayerName: Enemy
+  explosionRadius: 3
 --- !u!135 &1137344209069100601
 SphereCollider:
   m_ObjectHideFlags: 0
