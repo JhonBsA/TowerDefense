@@ -6,8 +6,8 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public float startHealth = 100;
-    public float health;
+    public int startHealth = 100;
+    public int health;
 
     public int value = 50;
 

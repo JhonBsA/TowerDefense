@@ -611,7 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 4
   fireRate: 1
-  projectilePrefab: {fileID: 2806127762699733400}
+  projectilePrefab: {fileID: 7806753168755475513, guid: 84f8d1916310b224ca20451633634caa,
+    type: 3}
   firePoint: {fileID: 8300959499620644759}
   rotatingPart: {fileID: 6027717203852694981}
 --- !u!1 &3448829728352514270
