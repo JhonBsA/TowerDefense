@@ -4,6 +4,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 20f;
+
+    public int damage = 50;
     private Transform target;
     public GameObject impactEffect;
 
@@ -45,6 +47,17 @@ public class Projectile : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        Destroy(enemy.gameObject);
+        EnemyBase e = enemy.GetComponent<EnemyBase>();
+
+        if ( e != null)
+        {
+            e.TakeDamage(damage);
+            Debug.Log("Enemy has taken damage");
+
+        }
+        else
+        {
+            Debug.Log("Enemy has no EnemyBase Script");
+        }
     }
 }

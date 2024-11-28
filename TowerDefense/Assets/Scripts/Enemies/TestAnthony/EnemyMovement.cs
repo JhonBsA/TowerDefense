@@ -55,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
     {
         PlayerStats.Lives--;
         Destroy(gameObject);
+        WaveSpawner.EnemiesAlive--;
     }
 
     Vector3 RoundToNearest90(Vector3 eulerAngles)
