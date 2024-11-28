@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class ProjectileCanion : Projectile
+public class ProjectileCanion : ProjectileManager
 {
     public float damage = 40f;         // Daño infligido
-    public float explosionRadius = 3f; // Radio de explosión 
+    public float explosionRadius = 0.5f; // Radio de explosión 
 
     protected override void HitTarget()
     {
@@ -19,10 +19,11 @@ public class ProjectileCanion : Projectile
 
         foreach (Collider enemyCollider in hitEnemies)
         {
-            Enemy enemyScript = enemyCollider.GetComponent<Enemy>();
+            EnemyBase enemyScript = enemyCollider.GetComponent<EnemyBase>();
             if (enemyScript != null)
             {
-                enemyScript.TakeDamage((int)damage); // Convierte el daño a entero
+                enemyScript.TakeDamage((float)damage); // Convierte el daño a entero
+                Debug.Log($"Damaged enemy: {enemyCollider.name} for {damage} points");
             }
         }
     }
@@ -33,6 +34,7 @@ public class ProjectileCanion : Projectile
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
+
     private void Damage(Transform enemy)
     {
         Debug.Log($"Damaged enemy: {enemy.name} for {damage} points");

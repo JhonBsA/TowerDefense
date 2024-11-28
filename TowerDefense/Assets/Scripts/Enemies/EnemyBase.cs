@@ -8,7 +8,7 @@ public class EnemyBase : MonoBehaviour
     public int startHealth = 100;
     public float health;
 
-    public int value = 50;
+    public int value = 5;
 
     public GameObject deathEffect;
 

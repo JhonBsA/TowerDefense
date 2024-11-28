@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 5539382999357505400}
   - component: {fileID: 2973391725909347438}
   - component: {fileID: 5962725435844648801}
-  - component: {fileID: 4539196262807947323}
+  - component: {fileID: 1664419596612976202}
   m_Layer: 0
   m_Name: 'EnemyZombie '
   m_TagString: Enemy
@@ -220,7 +220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3747827426451472986}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.024, y: 1.18, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
@@ -288,7 +288,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4539196262807947323
+--- !u!114 &1664419596612976202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,10 +297,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3747827426451472986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6d9e32100de834b84a248d2ac39618, type: 3}
+  m_Script: {fileID: 11500000, guid: ed574b614a59938408133372de64b8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  startHealth: 100
+  health: 0
+  value: 50
+  deathEffect: {fileID: 5668379929637607838, guid: 5d10cb5783361dc4288cc9a2004e3709,
+    type: 3}
+  healthBar: {fileID: 2860395505931906839}
 --- !u!1 &4985958467066334297
 GameObject:
   m_ObjectHideFlags: 0
