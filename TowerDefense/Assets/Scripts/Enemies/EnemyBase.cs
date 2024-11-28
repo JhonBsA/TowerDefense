@@ -4,12 +4,13 @@ using UnityEngine.UI;
 public class EnemyBase : MonoBehaviour
 {
     [HideInInspector]
-    public float speed;
-
+    
     public int startHealth = 100;
-    public int health;
+    public float health;
 
     public int value = 50;
+
+    public GameObject deathEffect;
 
     [Header("Unity Stuff")]
     public Image healthBar;
@@ -18,11 +19,18 @@ public class EnemyBase : MonoBehaviour
     {
         health = startHealth;
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         health -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = health / startHealth;
+        }
+        else
+        {
+            Debug.LogWarning("Health bar is not assigned!");
+        }
 
 
         //Death
@@ -34,8 +42,14 @@ public class EnemyBase : MonoBehaviour
 
     void Die()
     {
+        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
+
+
         PlayerStats.Money += value;
         Destroy(gameObject); // Destroys the enemy when health reaches 0
+        WaveSpawner.EnemiesAlive--;
+    
     }
 
 }

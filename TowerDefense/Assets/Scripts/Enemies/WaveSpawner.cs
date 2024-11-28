@@ -23,10 +23,15 @@ public class WaveSpawner : MonoBehaviour
     
     void Update()
     {
+        if (EnemiesAlive > 0)
+        {
+            return;
+        }
         if (countdown <= 0)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves; //reset countdown
+            return;
         }
 
         countdown -= Time.deltaTime; //reduce time by 1 per sec
@@ -39,11 +44,11 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave ()
     {
-        Debug.Log("Wave Incomming!");
-
         waveIndex++;
         for (int i = 0; i < waveIndex; i++)
         {
+            int currentWave = i + 1;
+            Debug.Log("WAVE: " + currentWave);
             SpawnEnemy();
             yield return new WaitForSeconds(spawnDelay);
         }
@@ -51,8 +56,15 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab,spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive ++;
+        if (enemyPrefab != null)
+        {
+            Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            EnemiesAlive++;
+        }
+        else
+        {
+            Debug.LogWarning("Enemy prefab is missing!");
+        }
     }
 
 }

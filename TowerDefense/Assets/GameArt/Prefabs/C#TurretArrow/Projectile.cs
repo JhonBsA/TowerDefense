@@ -3,6 +3,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 20f;
+
+    public int damage = 50;
     private Transform target;
     public GameObject impactEffect;
 
@@ -34,14 +36,25 @@ public class Projectile : MonoBehaviour
 
     void HitTarget()
     {
-        Debug.Log("Successfull enemy hit!");
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
+        Destroy(effectIns, 1f);
         Destroy(gameObject); // Destruir el proyectil
+        Damage(target); 
     }
 
     void Damage (Transform enemy)
     {
-        Destroy (enemy.gameObject);
+        EnemyBase e = enemy.GetComponent<EnemyBase>();
+
+        if ( e != null)
+        {
+            e.TakeDamage(damage);
+            Debug.Log("Enemy has taken damage");
+
+        }
+        else
+        {
+            Debug.Log("Enemy has no EnemyBase Script");
+        }
     }
 }

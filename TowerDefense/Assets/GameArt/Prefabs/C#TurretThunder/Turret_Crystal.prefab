@@ -694,6 +694,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7539714023187616771}
+  - component: {fileID: 8720382060585851736}
+  - component: {fileID: -4803615033249405183}
+  - component: {fileID: 7019519370243426635}
   m_Layer: 0
   m_Name: Turret_Crystal
   m_TagString: Untagged
@@ -718,6 +721,53 @@ Transform:
   - {fileID: 2360501986752552556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8720382060585851736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665033924317210342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15f02b06890c904fb4b312c69aef7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &-4803615033249405183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665033924317210342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4e87921a36afa438649a908c549614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
+  lightningEffect: {fileID: 7416208263069919763, guid: 997170f4eb0725a49983d88ec7ff33e9,
+    type: 3}
+  lightningTarget: {fileID: 0}
+--- !u!114 &7019519370243426635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665033924317210342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c89b1e6336d264a91d30fc8f80e2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 8467070320062567829}
+  midPoint1: {fileID: 2576645039024590949}
+  midPoint2: {fileID: 6842128901143166728}
+  target: {fileID: 155594855594728881}
+  LightningVFX: {fileID: 5033976743004214574, guid: 7741c11e6855ef34ca2ae0f84b1a6541,
+    type: 3}
 --- !u!1 &5760798540357645171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: vfx_ElectricArc
       objectReference: {fileID: 0}
+    - target: {fileID: 7416208263069919763, guid: 997170f4eb0725a49983d88ec7ff33e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8257100161339787320, guid: 997170f4eb0725a49983d88ec7ff33e9,
         type: 3}
       propertyPath: m_Property.m_Name
@@ -1305,6 +1360,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7975776347214679336}
   m_SourcePrefab: {fileID: 100100000, guid: 997170f4eb0725a49983d88ec7ff33e9, type: 3}
+--- !u!4 &155594855594728881 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2480516314375709265, guid: 997170f4eb0725a49983d88ec7ff33e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2325080891190607840}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2360501986752552556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 37832874854687116, guid: 997170f4eb0725a49983d88ec7ff33e9,
@@ -1330,6 +1391,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!4 &2576645039024590949 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 253975927130926981, guid: 997170f4eb0725a49983d88ec7ff33e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2325080891190607840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6842128901143166728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9128874769673126120, guid: 997170f4eb0725a49983d88ec7ff33e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2325080891190607840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8467070320062567829 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6180428905147787893, guid: 997170f4eb0725a49983d88ec7ff33e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2325080891190607840}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2929781700259153648
 PrefabInstance:
   m_ObjectHideFlags: 0
