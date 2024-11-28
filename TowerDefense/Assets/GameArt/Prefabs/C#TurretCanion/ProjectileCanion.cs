@@ -1,28 +1,19 @@
 using UnityEngine;
+using System.Collections;
 
-public class ProjectileCanion : MonoBehaviour
+public class ProjectileCanion : Projectile
 {
-    public float speed = 20f;           // Velocidad del proyectil
     public float damage = 40f;         // Daño infligido
-    public float explosionRadius = 3f; // Radio de explosión
+    public float explosionRadius = 3f; // Radio de explosión 
 
-    private void Start()
+    protected override void HitTarget()
     {
-        // Mover el proyectil hacia adelante
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        Debug.Log("Hit canon");
+        Explode(); // Llama a la función de explosión
+        base.HitTarget(); // Llama al comportamiento básico
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Detectar colisión con un enemigo
-        if (other.CompareTag("Enemy"))
-        {
-            Explode(); // Aplica daño en área
-            Destroy(gameObject); // Destruye el proyectil
-        }
-    }
-
-    private void Explode()
+    private void Explode() // Prueba de efecto
     {
         Collider[] hitEnemies = Physics.OverlapSphere(transform.position, explosionRadius);
 
@@ -41,5 +32,10 @@ public class ProjectileCanion : MonoBehaviour
         // Visualizar el radio de explosión en el editor
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
+    private void Damage(Transform enemy)
+    {
+        Debug.Log($"Damaged enemy: {enemy.name} for {damage} points");
+        Destroy(enemy.gameObject);
     }
 }
