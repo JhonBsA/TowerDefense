@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 20f;
     private Transform target;
+    public GameObject impactEffect;
 
     public void SetTarget(Transform newTarget)
     {
@@ -33,7 +34,14 @@ public class Projectile : MonoBehaviour
 
     void HitTarget()
     {
+        Debug.Log("Successfull enemy hit!");
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
         Destroy(gameObject); // Destruir el proyectil
-        // Aquí podrías añadir lógica para aplicar daño al enemigo
+    }
+
+    void Damage (Transform enemy)
+    {
+        Destroy (enemy.gameObject);
     }
 }

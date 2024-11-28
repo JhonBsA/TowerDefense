@@ -58,13 +58,18 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        if (projectilePrefab == null || firePoint == null)
+        if (projectilePrefab == null)
         {
-            UnityEngine.Debug.LogError("[Turret] Projectile Prefab or Fire Point is not assigned!");
+            UnityEngine.Debug.LogError("[Turret] Projectile Prefab is not assigned!");
+            return;
+        }
+        else if (firePoint == null)
+        {
+            UnityEngine.Debug.LogError("[Turret] Fire Point is not assigned!");
             return;
         }
 
-        GameObject projectileGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject projectileGO = (GameObject)Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
 
         if (projectile != null)
