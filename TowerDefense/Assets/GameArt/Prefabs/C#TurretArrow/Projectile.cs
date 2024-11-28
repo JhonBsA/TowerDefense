@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,6 +10,14 @@ public class Projectile : MonoBehaviour
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
+    }
+
+    protected virtual void HitTarget()
+    {
+        Debug.Log("Successfull enemy hit!");
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
+        Destroy(gameObject); // Destruir el proyectil
     }
 
     void Update()
@@ -32,16 +41,10 @@ public class Projectile : MonoBehaviour
         transform.LookAt(target);
     }
 
-    void HitTarget()
-    {
-        Debug.Log("Successfull enemy hit!");
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
-        Destroy(gameObject); // Destruir el proyectil
-    }
 
-    void Damage (Transform enemy)
+
+    void Damage(Transform enemy)
     {
-        Destroy (enemy.gameObject);
+        Destroy(enemy.gameObject);
     }
 }
