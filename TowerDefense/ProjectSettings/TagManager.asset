@@ -8,11 +8,12 @@ TagManager:
   - Path
   - SelectionTile
   - Enemy
+  - HitSpot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Castle
   - Water
   - UI
   - 

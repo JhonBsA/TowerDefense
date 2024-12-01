@@ -6,9 +6,9 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public static int EnemiesAlive = 0; 
+    public Wave[] waves;
 
-    public Transform enemyPrefab;
+    public static int EnemiesAlive = 0; 
 
     public Transform spawnPoint;
 
@@ -19,8 +19,17 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveCountdownText;
 
     private int waveIndex = 1;
-    
-    
+
+    public LightTransitionManager lightTransitionManager;
+
+    private void Start()
+    {
+        if (lightTransitionManager != null)
+        {
+            lightTransitionManager.StartLightTransition();
+        }
+    }
+
     void Update()
     {
         if (EnemiesAlive > 0)
@@ -44,27 +53,32 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave ()
     {
-        waveIndex++;
-        for (int i = 0; i < waveIndex; i++)
+        Wave wave = waves[waveIndex];
+
+        for (int i = 0; i < wave.count; i++)
         {
             int currentWave = i + 1;
             Debug.Log("WAVE: " + currentWave);
-            SpawnEnemy();
-            yield return new WaitForSeconds(spawnDelay);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
-        
-    }
-    void SpawnEnemy()
-    {
-        if (enemyPrefab != null)
+        waveIndex++;
+
+        if (waveIndex == waves.Length)
         {
-            Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            Debug.Log("LEVEL WON!");
+            this.enabled = false;
+        }
+
+
+    }
+    void SpawnEnemy(GameObject enemy)
+    {
+        {
+            Instantiate(enemy.gameObject, spawnPoint.position, spawnPoint.rotation);
             EnemiesAlive++;
         }
-        else
-        {
-            Debug.LogWarning("Enemy prefab is missing!");
-        }
+
     }
 
 }

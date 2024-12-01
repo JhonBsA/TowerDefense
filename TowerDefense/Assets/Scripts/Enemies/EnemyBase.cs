@@ -3,12 +3,15 @@ using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
-    [HideInInspector]
-    
-    public int startHealth = 100;
-    public float health;
-
+    [Header("Enemy Stats")]
     public int value = 5;
+    public int startHealth = 100;
+    public float startSpeed = 1f;
+
+    [HideInInspector]
+    public float health;
+    [HideInInspector]
+    public float speed = 1f;
 
     public GameObject deathEffect;
 
@@ -18,6 +21,7 @@ public class EnemyBase : MonoBehaviour
     void Start()
     {
         health = startHealth;
+        speed = startSpeed;
     }
     public void TakeDamage(float amount)
     {
@@ -38,6 +42,11 @@ public class EnemyBase : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Slow (float pct)
+    {
+        speed = startSpeed * (1f - pct);
     }
 
     void Die()

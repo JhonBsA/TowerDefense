@@ -55,16 +55,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 3.895, y: 1.7260001, z: -1.958}
+      - m_Value: {x: 3.895, y: 1.7260001, z: -0.958}
         m_Name: LightningTarget
         m_Overridden: 1
-      - m_Value: {x: 5.645, y: 1.7470001, z: -1.958}
+      - m_Value: {x: 5.645, y: 1.7470001, z: -0.958}
         m_Name: MidPoint1
         m_Overridden: 1
-      - m_Value: {x: 4.645, y: 1.735, z: -1.958}
+      - m_Value: {x: 4.645, y: 1.735, z: -0.958}
         m_Name: MidPoint2
         m_Overridden: 1
-      - m_Value: {x: 6.395, y: 1.756, z: -1.958}
+      - m_Value: {x: 6.395, y: 1.756, z: -0.958}
         m_Name: Origin
         m_Overridden: 1
     m_Vector4f:

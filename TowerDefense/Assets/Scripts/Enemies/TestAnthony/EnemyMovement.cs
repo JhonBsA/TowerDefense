@@ -1,17 +1,20 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyBase))]
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 1f;
+    
     public float turnSpeed = 20f;
     public float waypointThreshold = 0.23f; // Distance threshold to reach the waypoint
 
+    private EnemyBase _enemy;
 
     private Transform target; // Target waypoint
     private int waypointIndex = 0;
 
     void Start()
     {
+        _enemy = GetComponent<EnemyBase>();
         target = Waypoint.waypoints[0];
     }
 
@@ -19,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3 dir = target.position - transform.position; // Points from target.position to transform.position
         dir.y = 0; // Ensures enemy doesn't move in "y" axis
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World); // Translates enemy to normalized direction at "speed"
+        transform.Translate(dir.normalized * _enemy.speed * Time.deltaTime, Space.World); // Translates enemy to normalized direction at "speed"
 
         if (dir != Vector3.zero) // Check if there's a direction
         {
@@ -38,6 +41,9 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        _enemy.speed = _enemy.startSpeed;
+
     }
 
     void GetNextWaypoint()
