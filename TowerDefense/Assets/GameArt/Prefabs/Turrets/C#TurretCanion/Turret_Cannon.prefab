@@ -421,9 +421,12 @@ MonoBehaviour:
   rotatingPart: {fileID: 8142419154997912657}
   gizmoColor: {r: 1, g: 1, b: 1, a: 1}
   useLaser: 0
+  damageOverTime: 30
+  slowAmount: 0.5
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
-  enemyTag: HitSpot
+  impactLight: {fileID: 0}
+  enemyTag: Enemy
 --- !u!1 &6881714184676335007
 GameObject:
   m_ObjectHideFlags: 0
